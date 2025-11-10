@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import usuarioController from "./controller/UsuarioController.js";
+import usuarioController from "./controller/LoginController.js";
 
 const app = express();
 app.use(cors());

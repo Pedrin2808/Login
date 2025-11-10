@@ -5,7 +5,7 @@ import "../pages/login.scss";
 
 export default function Login() {
     const navigate = useNavigate();
-    const [modo, setModo] = useState("login"); // alterna entre "login" e "registrar"
+    const [modo, setModo] = useState("login");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [nome_usuario, setNome] = useState("");
@@ -21,11 +21,24 @@ export default function Login() {
                 senha
             });
 
-            if (resposta.data) {
-                setMensagem("Login realizado com sucesso!");
-                console.log("Usuário logado:", resposta.data);
-                setTimeout(() => navigate("/admin"), 1000); // redireciona após 1s
+            if (email === "adm@gmail.com" && senha === "adm") {
+
+                if (resposta.data) {
+                    setMensagem("Login realizado com sucesso!");
+                    console.log("Usuário logado:", resposta.data);
+                    setTimeout(() => navigate("/admin"), 1000);
+                }
             }
+            else {
+
+                if (resposta.data) {
+                    setMensagem("Login realizado com sucesso!");
+                    console.log("Usuário logado:", resposta.data);
+                    setTimeout(() => navigate("/inicio"), 1000);
+                }
+
+            }
+
         } catch (err) {
             console.error(err);
             setMensagem("Erro ao realizar login. Verifique suas credenciais.");

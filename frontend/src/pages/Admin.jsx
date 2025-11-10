@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../api";
 import Cabecalho from "../components/cabecalho/cabecalho";
-import Login from "../pages/login"
-import "./admin.scss";
+import Login from "../pages/login";
+import "./Admin.scss";
 
 export default function Admin() {
     const [usuarios, setUsuarios] = useState([]);

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { cadastrarUsuario, autenticarUsuario, listarUsuarios } from "../repository/UsuarioRepository.js";
+import { cadastrarUsuario, autenticarUsuario, listarUsuarios } from "../repository/LoginRepository.js";
 
 const endpoints = Router();
 

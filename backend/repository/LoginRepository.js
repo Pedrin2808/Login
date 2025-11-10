@@ -1,9 +1,8 @@
 import con from "./conection.js";
 
-// Inserir novo usuário
 export async function cadastrarUsuario(usuario) {
     const comando = `
-        INSERT INTO tb_usuario (nome_usuario, email, cpf, telefone, dt_nascimento, senha)
+        INSERT INTO tb_login (nome_usuario, email, cpf, telefone, dt_nascimento, senha)
         VALUES (?, ?, ?, ?, ?, MD5(?))
     `;
 
@@ -20,11 +19,10 @@ export async function cadastrarUsuario(usuario) {
     return usuario;
 }
 
-// Autenticar login
 export async function autenticarUsuario(email, senha) {
     const comando = `
         SELECT id_usuario, nome_usuario, email 
-        FROM tb_usuario
+        FROM tb_login
         WHERE email = ? AND senha = MD5(?)
     `;
 
@@ -32,11 +30,10 @@ export async function autenticarUsuario(email, senha) {
     return linhas[0];
 }
 
-// Listar todos (para o admin)
 export async function listarUsuarios() {
     const comando = `
         SELECT id_usuario, nome_usuario, email, cpf, telefone, dt_nascimento
-        FROM tb_usuario
+        FROM tb_login
     `;
 
     const [linhas] = await con.query(comando);
